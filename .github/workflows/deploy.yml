@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 「main」ブランチにプッシュするたびにワークフローを実行します
+  push:
+    branches: [ main ]
+  # Actions タブから手動でワークフローを実行できるようにします
+  workflow_dispatch:
+
+# ジョブ実行の権限を設定
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時に1つのデプロイメントのみを許可する
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
+        with:
+          # パッケージマネージャーを指定。デフォルトは npm
+          package-manager: npm
+          # ビルド出力先ディレクトリ。デフォルトは dist
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
