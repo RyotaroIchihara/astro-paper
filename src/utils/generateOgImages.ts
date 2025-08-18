@@ -11,10 +11,12 @@ function svgBufferToPngBuffer(svg: string) {
 
 export async function generateOgImageForPost(post: CollectionEntry<"blog">) {
   const svg = await postOgImage(post);
-  return svgBufferToPngBuffer(svg);
+  const buffer = svgBufferToPngBuffer(svg);
+  return new Uint8Array(buffer);
 }
 
 export async function generateOgImageForSite() {
   const svg = await siteOgImage();
-  return svgBufferToPngBuffer(svg);
+  const buffer = svgBufferToPngBuffer(svg);
+  return new Uint8Array(buffer);
 }
