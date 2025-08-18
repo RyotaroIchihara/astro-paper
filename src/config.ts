@@ -1,5 +1,5 @@
 export const SITE = {
-  website: "https://RyotaroIchihara.github.io/astro-paper/", // replace this with your deployed domain
+  website: "https://ryotaro-astro-paper.netlify.app/", // replace this with your deployed Netlify domain
   author: "RyotaroIchihara",
   profile: "https://github.com/RyotaroIchihara",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
