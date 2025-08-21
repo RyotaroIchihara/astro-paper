@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // SPAルーティングのためのハック - GitHub Pages 対応
+    (function() {
+      const path = window.location.pathname;
+      if (path.startsWith('/astro-paper') && path !== '/astro-paper/' && !path.includes('.')) {
+        sessionStorage.redirect = window.location.href;
+        window.location.href = '/astro-paper/';
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- このページは直接表示されることはありません -->
+</body>
+</html>

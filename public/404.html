@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found</title>
+  <script>
+    // Single Page Appのルーティング対応
+    const segmentCount = 1; // /astro-paper/ の後のセグメント数
+    const location = window.location;
+    const redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    
+    if (redirect && redirect !== location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  </script>
+</head>
+<body>
+  <script>
+    // 404ページから自動的にホームページにリダイレクト
+    window.location.href = '/astro-paper/';
+  </script>
+</body>
+</html>
