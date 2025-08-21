@@ -1,0 +1,14 @@
+---
+const {title, content} = Astro.props;
+---
+
+<section class="box">
+    <h4>{title}</h4>
+    <p>{content}</p>
+</section>
+<style>
+    .box {
+        border: green 1px dashed;
+        margin: 10px;
+    }
+</style>

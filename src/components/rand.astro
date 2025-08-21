@@ -1,0 +1,13 @@
+---
+const rand = Math.round(Math.random() * 100);
+---
+<section class="box">
+    <h4>乱数の表示 rand.astro</h4>
+    <p>生成された乱数は{rand}</p>
+</section>
+<style is:global>
+    .box {
+        border: green 1px solid;
+        margin: 10px;
+    }
+</style>
