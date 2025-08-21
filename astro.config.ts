@@ -13,8 +13,12 @@ import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.website,
-  base: '/astro-paper',
+  site: "https://ryotaroichihara.github.io",
+  base: process.env.NODE_ENV === 'production' ? "/astro-paper" : "",
+  trailingSlash: process.env.NODE_ENV === 'production' ? "always" : "ignore",
+  build: {
+    format: process.env.NODE_ENV === 'production' ? "directory" : "file"
+  },
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
