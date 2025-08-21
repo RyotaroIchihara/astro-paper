@@ -1,7 +1,5 @@
 export const SITE = {
-  website: process.env.DEPLOY_TARGET === 'github' 
-    ? "https://RyotaroIchihara.github.io/astro-paper/" 
-    : "https://ryotaro-astro-paper.netlify.app/",
+  website: "https://ryotaro-astro-paper.netlify.app/",
   author: "RyotaroIchihara",
   profile: "https://github.com/RyotaroIchihara",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
